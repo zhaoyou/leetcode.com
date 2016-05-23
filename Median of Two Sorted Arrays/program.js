@@ -1,51 +1,47 @@
 
-var binarySearch = function(arr, target) {
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number}
+ */
+var findMedianSortedArrays = function(nums1, nums2) {
+  var target = [];
+  var i = 0, j = 0, len1 = nums1.length, len2 = nums2.length;
+  var len = len1 + len2;
+  var medianIndex = 0, k = 0;
 
-}
-
-var find = function(arr, target, start, end) {
-
-
-  if (start >= end) { return;}
-
-  var middle = Math.floor((end - start + 1)  / 2);
-  var start1 = start, end1 = middle;
-  var start2 = middle + 1, end2 = end;
-
-  console.log(start1, end1, middle, start2, end2);
-
-  find(arr, target, start1, end1);
-  find(arr, target, start2, end2);
-
-  var k = start;
-
-  while(start1 <= end1 && start2 <= end2) {
-    target[k++] = arr[start1] > arr[start2] ? arr[start2++] : arr[start1++];
-  }
-
-  while(start1 <= end1) {
-    target[k++] = arr[start1++];
-  }
-
-  while(start2 <= end2) {
-    target[k++] = arr[start2++];
+  while( i < len1 && j < len2) {
+    if (nums1[i] > nums2[j]) {
+      target[k++] = nums2[j++];
+    } else {
+      target[k++] = nums1[i++];
+    }
   }
 
 
-  for(k = start; k <= end; k++) {
-    arr[k] = target[k];
+  while(i < len1) {
+    target[k++] = nums1[i++];
   }
 
-}
-
-var main_merge_sort = function(p) {
-  var arr = p.split(',');
-  console.log(arr);
-  var len = arr.length;
-  var target = new Array(len);
-  find(arr, target, 0, len - 1);
-  console.log(arr);
-}
+  while(j < len2) {
+    target[k++] = nums2[j++];
+  }
 
 
-main_merge_sort(process.argv[2]);
+  if (len % 2 == 0) {
+    return ((target[len / 2]  + target[(len/2) - 1]) / 2);
+  } else {
+    return target[parseInt(len/2)];
+  }
+};
+
+var num1 = process.argv[2] ? process.argv[2].split(',') : [];
+var num2 = process.argv[3] ? process.argv[3].split(',') : [];
+
+
+num1 = num1.map(function(e) { return parseInt(e); });
+num2 = num2.map(function(e) { return parseInt(e); });
+
+
+console.log(findMedianSortedArrays(num1, num2));
+
