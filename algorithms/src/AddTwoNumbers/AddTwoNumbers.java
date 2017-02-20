@@ -27,36 +27,17 @@ public class AddTwoNumbers {
 
     private ListNode calc(ListNode l1, ListNode l2, int padding) {
 
-        if (l1 == null ) {
-            int total = 0 + l2.val + padding;
-            ListNode r = new ListNode(total % 10);
-            if (total % 10 == 0 && total > 0) {
-                ListNode next = new ListNode(1);
-                r.next = next;
-            }
 
-            return r;
-        } else if (l2 == null) {
-            int total = 0 + l1.val + padding;
-            ListNode r = new ListNode(total % 10);
-            if (total % 10 == 0 && total > 0) {
-                ListNode next = new ListNode(1);
-                r.next = next;
+        if (l1 == null && l2 == null) {
+            if (padding != 0) {
+                return new ListNode(1);
             }
-            return r;
-        } else if (l1.next == null && l2.next == null) {
-            int total = l2.val + l1.val + padding;
-            ListNode r = new ListNode(total % 10);
-            if (total >= 10) {
-                ListNode next = new ListNode(1);
-                r.next = next;
-            }
-            return r;
+            return null;
         } else {
-            int result = (l1.val + l2.val + padding) % 10;
-            int nextResult = (l1.val + l2.val + padding) / 10;
-            ListNode currentNode = new ListNode(result);
-            currentNode.next = calc(l1.next, l2.next, nextResult);
+            int result = (l1 != null ? l1.val : 0) + (l2 != null ? l2.val  : 0) + padding;
+            int nextResult = result / 10;
+            ListNode currentNode = new ListNode(result % 10);
+            currentNode.next = calc(l1 != null ? l1.next : l1, l2 != null ? l2.next : l2, nextResult);
             return currentNode;
         }
     }
