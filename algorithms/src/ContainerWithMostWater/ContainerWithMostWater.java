@@ -14,7 +14,9 @@ public class ContainerWithMostWater {
 
 
     /**
-     * 暴力算法 O(n²)
+     * 暴力算法 
+     * 时间复杂度 O(n²)
+     * 空间复杂度 O(1)
      */
     public static int maxArea(int[] height) {
         int area = 0;
@@ -26,6 +28,12 @@ public class ContainerWithMostWater {
         return area;
     }
 
+    /**
+     * 指针找法
+     * 时间复杂度 O(n)
+     * 空间复杂度 O(1
+     * )
+     */
     public static int maxArea2(int[] height) {
         int area = 0;
         int i = 0, j = height.length - 1;
