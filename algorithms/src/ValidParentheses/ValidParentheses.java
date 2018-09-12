@@ -15,8 +15,21 @@ public class ValidParentheses {
 
     }
 
-    public boolean isValid(String s) {
+    public boolean isValid2(String s) {
+        if (s.isEmpty()) return true;
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < s.length(); i++) {
+            if (isBegin(s.charAt(i))) {
+                stack.push(s.charAt(i));
+            } else {
+                if (stack.isEmpty()) return false;
+                if (!isMatch(stack.pop(), s.charAt(i))) return false;  
+            }
+        }
+        return stack.isEmpty();
+    }
 
+    public boolean isValid(String s) {
 
         if (s.isEmpty()) return true;
 
