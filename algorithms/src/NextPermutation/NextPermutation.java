@@ -1,5 +1,8 @@
 package NextPermutation;
 
+/**
+ * http://www.cnblogs.com/grandyang/p/4428207.html
+ */
 public class NextPermutation {
     public static void main(String[] args) {
         int [] nums = {1,2,7,4,3,1};
