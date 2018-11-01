@@ -14,7 +14,7 @@ public class ReverseLinkedList {
         a3.next = a4;
         a4.next = a5;
 
-        System.out.println(reverse(a1));
+        System.out.println(reverse2(a1));
 
     }
 
@@ -48,6 +48,26 @@ public class ReverseLinkedList {
 
 
         return prev;
+    }
+
+    public static ListNode reverse2(ListNode head) {
+
+        ListNode prev = null;
+        ListNode next = null;
+        ListNode cur = head;
+
+        while(cur != null) {
+            next = cur.next;
+            cur.next = prev;
+
+            prev = cur;
+            cur = next;
+        }
+
+
+        head = prev;
+
+        return head;
     }
 
     static class ListNode {
