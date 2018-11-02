@@ -14,7 +14,7 @@ public class ReverseLinkedList {
         a3.next = a4;
         a4.next = a5;
 
-        System.out.println(reverse2(a1));
+        System.out.println(reverseByRecursive(a1));
 
     }
 
@@ -69,6 +69,70 @@ public class ReverseLinkedList {
 
         return head;
     }
+
+
+    public static ListNode reverse3(ListNode head) {
+
+        ListNode prev = null;
+        ListNode cur = head;
+
+        while(cur != null) {
+            ListNode next = cur.next;
+            cur.next = prev;
+
+            prev = cur;
+            cur = next;
+        }
+
+        head = prev;
+
+        return head;
+    }
+
+
+    // 迭代
+    public static ListNode reverse4(ListNode head) {
+
+        ListNode prev = head;
+
+        if (head.next == null) return head;
+
+        ListNode r = reverse4(head.next);
+
+        System.out.println("r: " + r.toString() + " head: " + head.val);
+
+        r.next = head;
+        head.next = null;
+
+
+
+        //r = head;
+
+        return prev;
+
+    }
+
+    // 递归
+
+    public static ListNode reverseByRecursive(ListNode head) {
+      if (head == null || head.next == null) return head;
+
+      return reverseHelper(head, null);
+    }
+
+    private static ListNode reverseHelper(ListNode cur, ListNode prev) {
+        if (cur.next == null) {
+            cur.next = prev;
+            return cur;
+        }
+
+        ListNode next = cur.next;
+        cur.next = prev;
+        return reverseHelper(next, cur);
+    }
+
+
+
 
     static class ListNode {
         private int val;

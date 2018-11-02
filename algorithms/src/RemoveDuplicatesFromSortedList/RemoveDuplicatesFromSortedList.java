@@ -17,7 +17,6 @@ public class RemoveDuplicatesFromSortedList {
         ListNode second = new  ListNode(1);
         second.next = new  ListNode(1);
         second.next.next = new  ListNode(1);
-
         second.next.next.next = new  ListNode(2);
         second.next.next.next.next = new  ListNode(3);
 
