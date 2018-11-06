@@ -7,7 +7,7 @@ import org.junit.Test;
  */
 public class AddTwoNumbers {
 
-    public static  class ListNode {
+    static  class ListNode {
       int val;
       ListNode next;
       ListNode(int x) { val = x; }
