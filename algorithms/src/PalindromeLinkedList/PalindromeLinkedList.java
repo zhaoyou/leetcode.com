@@ -37,7 +37,7 @@ public class PalindromeLinkedList {
             fast = fast.next.next;
             slow = slow.next;
         }
-        
+
         prev = slow.next;
         slow.next = null;
 
