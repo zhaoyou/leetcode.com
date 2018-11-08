@@ -1,7 +1,6 @@
-package PartitionList;
+package ListNode;
 
 
-import RemoveDuplicatesFromSortedList.RemoveDuplicatesFromSortedList;
 import org.junit.Test;
 
 public class PartitionList {

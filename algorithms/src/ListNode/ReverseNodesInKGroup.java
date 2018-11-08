@@ -1,7 +1,5 @@
-package ReverseNodesInKGroup;
+package ListNode;
 
-
-import ReverseLinkedList.ReverseLinkedList;
 
 public class ReverseNodesInKGroup {
     public static void main(String[] args) {

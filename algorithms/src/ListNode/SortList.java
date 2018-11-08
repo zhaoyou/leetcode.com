@@ -1,4 +1,4 @@
-package SortList;
+package ListNode;
 
 import ListNode.ListNode;
 import org.junit.Test;

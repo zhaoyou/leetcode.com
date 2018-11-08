@@ -1,4 +1,4 @@
-package RemoveDuplicatesFromSortedListII;
+package ListNode;
 
 
 public class RemoveDuplicatesFromSortedListII {

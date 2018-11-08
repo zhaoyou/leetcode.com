@@ -1,6 +1,4 @@
-package RemoveNodeFromEndList;
-
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
+package ListNode;
 
 public class RemoveNodeFromEndList {
 
@@ -126,15 +124,4 @@ public class RemoveNodeFromEndList {
 
     //     return head;
     // }
-}
-
-class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
-
-        @Override
-        public String toString() {
-            return "{val: " + val + " , next: " + next + "}";
-        }
 }

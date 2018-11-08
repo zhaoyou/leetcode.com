@@ -1,7 +1,6 @@
-package CopyListWithRandomPointer;
+package ListNode;
 
-import RandomListNode.RandomListNode;
-import org.junit.Test;
+import ListNode.RandomListNode;
 
 import java.util.HashMap;
 import java.util.Map;

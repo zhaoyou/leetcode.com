@@ -1,4 +1,4 @@
-package LinkedListCycleII;
+package ListNode;
 
 import ListNode.ListNode;
 

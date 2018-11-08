@@ -1,4 +1,4 @@
-package PalindromeLinkedList;
+package ListNode;
 
 import ListNode.ListNode;
 import org.junit.Test;

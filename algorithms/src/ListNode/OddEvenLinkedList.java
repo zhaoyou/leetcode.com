@@ -1,4 +1,4 @@
-package OddEvenLinkedList;
+package ListNode;
 
 
 import ListNode.ListNode;

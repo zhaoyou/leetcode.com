@@ -1,4 +1,4 @@
-package RandomListNode;
+package ListNode;
 
 public class RandomListNode {
     public int label;
