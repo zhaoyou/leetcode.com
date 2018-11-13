@@ -5,6 +5,10 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * reference: https://blog.csdn.net/liangzhaoyang1/article/details/51415719 (深度优先搜索 depth first search DFS)
+ * https://www.cnblogs.com/springfor/p/3886409.html
+ */
 public class RestoreIPAddresses {
 
 
