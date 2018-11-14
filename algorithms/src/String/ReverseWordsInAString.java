@@ -6,6 +6,7 @@ import java.util.Stack;
 
 /**
  * reference: http://www.cnblogs.com/grandyang/p/4606676.html
+ * leetcode讨论： https://leetcode.com/problems/reverse-words-in-a-string/discuss/188552/Java-in-place-solution-with-O(n)
  */
 public class ReverseWordsInAString {
 
