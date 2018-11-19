@@ -19,14 +19,18 @@ import java.util.List;
  * The input time is legal and ranges from 00:00 to 23:59.
  *
  */
+
+/**
+ * reference: http://www.cnblogs.com/grandyang/p/6568398.html
+ */
 public class MinimumTimeDifference {
 
     @Test
     public void test() {
         List<String> list = new ArrayList<String>();
-        list.add("18:00");
-        list.add("13:00");
-        list.add("01:00");
+        list.add("03:00");
+        list.add("05:00");
+        list.add("12:00");
         System.out.println(findMinDifference(list));
 
     }
