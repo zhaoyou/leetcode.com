@@ -14,6 +14,9 @@ import org.junit.Test;
  * Length of the given string and k will in the range [1, 10000]
  */
 
+/**
+ * reference: http://www.cnblogs.com/grandyang/p/6583004.html
+ */
 public class ReverseStringII {
 
     @Test
