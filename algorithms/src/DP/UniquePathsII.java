@@ -2,13 +2,16 @@ package DP;
 
 import org.junit.Test;
 
+/**
+ * https://blog.csdn.net/linhuanmars/article/details/22135231 (未理解）
+ */
 public class UniquePathsII {
 
     @Test
     public void test() {
         int [][] obstacleGrid =
                 {
-                {0,0,0}, {0,1,0}, {0,0,0}
+                {0,0}, {0,0}, {0,0}
         };
 
         // {{0,1,0,0,0},{1,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}};
