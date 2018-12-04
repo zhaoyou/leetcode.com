@@ -2,6 +2,10 @@ package DP;
 
 import org.junit.Test;
 
+/**
+ * reference: http://www.cnblogs.com/grandyang/p/4280131.html
+ *
+ */
 public class BestTimeToBuyAndSellStock {
 
     @Test
