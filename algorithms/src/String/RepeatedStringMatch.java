@@ -7,7 +7,7 @@ import org.junit.Test;
  * reference:  http://www.cnblogs.com/grandyang/p/7631434.html
  */
 public class RepeatedStringMatch {
-    
+
     @Test
     public void test() {
         String A = "abc"; // abcabcabc
