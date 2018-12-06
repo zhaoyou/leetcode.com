@@ -4,6 +4,9 @@ import org.junit.Test;
 
 import java.util.Stack;
 
+/**
+ * reference: http://www.cnblogs.com/grandyang/p/7617017.html
+ */
 public class ValidParenthesisString {
 
     @Test
