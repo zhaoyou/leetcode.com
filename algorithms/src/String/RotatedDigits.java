@@ -29,7 +29,37 @@ public class RotatedDigits {
     @Test
     public void test() {
         int N = 10;
-        System.out.println(N + " --> " + rotatedDigits(N));
+        System.out.println(N + " --> " + rotatedDigits2(N));
+    }
+
+    public int rotatedDigits2(int N) {
+
+        int count = 0;
+        int[] dp = new int[N + 1];
+
+        for (int i = 1; i <=N; i++) {
+            if (i < 10) {
+
+                if (i == 1 || i == 8 || i == 0) dp[i] = 1;
+                else if (i == 2 || i == 5 || i == 6 || i == 9) {
+                    dp[i] = 2;
+                    count++;
+                }
+
+            } else {
+
+                int a = dp[i / 10], b = dp[i % 10];
+
+                if (a == 1 && b == 1) dp[i] = 1;
+                else if (a >=1 && b >= 1) {
+                    dp[i] = 2;
+                    count++;
+                }
+
+            }
+        }
+
+        return count;
     }
 
     public int rotatedDigits(int N) {
