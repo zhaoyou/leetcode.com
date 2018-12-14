@@ -31,9 +31,40 @@ public class CustomSortString {
     @Test
     public void test() {
         String S = "cba";
-        String T = "abcd";
+        String T = "akjsaabdacdbbacabdddd";
 
-        System.out.println("\nS: " + S + "\nT: " + T + "\nOrder: " + customSortString(S, T));
+        System.out.println("\nS: " + S + "\nT: " + T + "\nOrder: " + customSortString2(S, T));
+    }
+
+    public String customSortString2(String S, String T) {
+
+        if (S.equals("")) return T;
+
+        int dp[] = new int[26];
+
+        for(char c: T.toCharArray()) {
+            dp[c - 'a']++;
+        }
+
+        StringBuffer sb = new StringBuffer();
+
+        for(char c: S.toCharArray()) {
+            for(int j = 0; j < dp[c - 'a']; j++) {
+                sb.append(c);
+            }
+
+            dp[c- 'a'] = 0;
+        }
+
+
+        for(char c = 'a'; c <= 'z'; c++) {
+            for(int j = 0; j < dp[c - 'a']; j++) {
+                sb.append(c);
+            }
+        }
+
+        return sb.toString();
+
     }
 
     public String customSortString(String S, String T) {
@@ -57,7 +88,7 @@ public class CustomSortString {
 
 
             while (k >= 1) {
-                
+
                 if (dp[target[k - 1] - 'a'] == 0 || dp[target[k] - 'a'] < dp[target[k - 1] - 'a']) {
 
                     //System.out.println("swap..");
