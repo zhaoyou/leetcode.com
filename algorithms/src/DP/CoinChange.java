@@ -4,7 +4,7 @@ import org.junit.Test;
 
 /**
  * reference: http://www.cnblogs.com/grandyang/p/5138186.html
- * 
+ *
  */
 public class CoinChange {
 
