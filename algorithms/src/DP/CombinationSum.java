@@ -5,6 +5,10 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 回溯算法通用解决方式：
+ * https://leetcode.com/problems/combination-sum/discuss/16502/A-general-approach-to-backtracking-questions-in-Java-(Subsets-Permutations-Combination-Sum-Palindrome-Partitioning)
+ */
 public class CombinationSum {
 
     @Test
