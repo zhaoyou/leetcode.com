@@ -31,10 +31,16 @@ public class Subsets {
 
         list.add(new ArrayList<>(tempList));
 
+        System.out.println("DFS: tempList: " + tempList.toString());
+
         for(int i = start; i < nums.length; i++) {
             tempList.add(nums[i]);
+            System.out.println("DFS inner before: " + nums[i]);
             dfs(list, tempList, nums, i + 1 );
+            System.out.println("DFS inner after .."  + nums[i]);
             tempList.remove(tempList.size() - 1);
         }
+
+        System.out.println("[DFS] Over");
     }
 }
