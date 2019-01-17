@@ -14,7 +14,7 @@ public class PermutationString {
 
     public List<String> permutation(String s) {
         List<String> list = new ArrayList<>();
-        // 如果需要保证唯一，需要使用set 
+        // 如果需要保证唯一，需要使用set
         permutationHelper(list, s, "", new boolean[s.length()]);
         return list;
     }
