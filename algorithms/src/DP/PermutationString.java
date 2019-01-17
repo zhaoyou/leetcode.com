@@ -14,19 +14,23 @@ public class PermutationString {
 
     public List<String> permutation(String s) {
         List<String> list = new ArrayList<>();
-        permutationHelper(list, s, "", 0);
+        // 如果需要保证唯一，需要使用set 
+        permutationHelper(list, s, "", new boolean[s.length()]);
         return list;
     }
 
-    private void permutationHelper(List<String> list, String s, String chosen, int index) {
+    private void permutationHelper(List<String> list, String s, String chosen, boolean[] used) {
 
         if (chosen.length() == s.length()) list.add(chosen);
 
-        for(int i = index; i < s.length(); i++) {
+        for(int i = 0; i < s.length(); i++) {
+            if (used[i]) continue;
             chosen += s.charAt(i);
-            permutationHelper(list, s, chosen, i + 1);
+            used[i] = true;
+            permutationHelper(list, s, chosen, used);
             chosen  = chosen.substring(0, chosen.length() - 1);
-            System.out.println("chosen: " + chosen + " i: " + i);
+            used[i] = false;
+           // System.out.println("chosen: " + chosen + " i: " + i);
         }
     }
 }
