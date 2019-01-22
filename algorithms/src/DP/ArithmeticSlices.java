@@ -2,6 +2,10 @@ package DP;
 
 import org.junit.Test;
 
+/**
+ * reference:
+ * http://www.cnblogs.com/grandyang/p/5968340.html
+ */
 public class ArithmeticSlices {
 
     @Test
