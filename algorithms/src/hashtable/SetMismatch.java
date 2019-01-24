@@ -8,10 +8,32 @@ public class SetMismatch {
 
     @Test
     public void test() {
-        int [] nums = {2, 2};
+        int[] nums = {1, 2, 2};
 
-        System.out.println(Arrays.toString(findErrorNums(nums)));
+        System.out.println(Arrays.toString(findErrorNums2(nums)));
     }
+
+    /**
+     * reference: https://leetcode.com/problems/set-mismatch/discuss/105507/Java-O(n)-Time-O(1)-Space
+     * @param nums
+     * @return
+     */
+    public int[] findErrorNums2(int[] nums) {
+
+
+        int[] res = new int[2];
+        for(int i :nums) {
+            if (nums[Math.abs(i) - 1] < 0) res[0] = Math.abs(i);
+            else nums[Math.abs(i) - 1] *= -1;
+        }
+
+        for(int i = 0; i<nums.length;i++) {
+            if (nums[i] > 0) res[1] = i + 1;
+        }
+       return res;
+    }
+
+
 
     public int[] findErrorNums(int[] nums) {
         Arrays.sort(nums);
