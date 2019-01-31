@@ -9,6 +9,7 @@ import java.util.Map;
 /**
  * reference:
  * https://blog.csdn.net/feifeiiong/article/details/77925635
+ * http://www.cnblogs.com/grandyang/p/7603903.html
  */
 public class NumberOfLongestIncreasingSubsequence {
 
