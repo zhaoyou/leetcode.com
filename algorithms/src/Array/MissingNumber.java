@@ -2,6 +2,11 @@ package Array;
 
 import org.junit.Test;
 
+/**
+ * reference:
+ * 使用异或^    
+ * https://leetcode.com/problems/missing-number/discuss/69791/4-Line-Simple-Java-Bit-Manipulate-Solution-with-Explaination
+ */
 public class MissingNumber {
 
     @Test
