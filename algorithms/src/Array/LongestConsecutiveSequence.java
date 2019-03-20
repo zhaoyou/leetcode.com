@@ -2,13 +2,21 @@ package Array;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class LongestConsecutiveSequence {
 
     @Test
     public void test() {
+        List<String> userNames = new ArrayList<String>() {{
+            add("Hollis");
+            add("hollis");
+            add("HollisChuang");
+            add("H");
+        }};
         int[] nums = {100, 4, 200, 1, 3, 2};
         System.out.println(longestConsecutive(nums));
     }
