@@ -11,7 +11,46 @@ public class StringToInteger {
     @Test
     public void test() {
         String str = "0-1";
-        System.out.println(myAtoi(str));
+        System.out.println(myAtoi2(str));
+    }
+
+    public int myAtoi2(String str) {
+        int len = str.length();
+
+        if (str.isEmpty()) return 0;
+
+        int j = 0;
+
+        int sign = 1;
+
+        int res = 0;
+
+        // 去掉前置空格
+        while(j < len && str.charAt(j) == ' ') j++;
+
+        // 处理有可能的符号位
+        if (j < len && (str.charAt(j) == '-' || str.charAt(j) == '+')) {
+            sign = str.charAt(j++) == '-' ? -1 : 1;
+        }
+
+        // 处理有效的数字
+        while(j < len) {
+            char c =str.charAt(j++);
+
+            if (c < '0' || c > '9') break;
+
+            int sum = res * 10 + (c - '0');
+
+            // 判断数字是否合法integer
+            if (sum / 10 != res) {
+                return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+            }
+
+            res = sum;
+        }
+
+        return res * sign;
+
     }
 
     public int myAtoi(String str) {
