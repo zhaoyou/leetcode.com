@@ -11,8 +11,10 @@ public class ReverseInteger {
 
     @Test
     public void test() {
-        int x = -1230;
-        System.out.println(reverse2(x));
+        int x = Integer.MAX_VALUE;
+        System.out.println(x );
+        System.out.println(x + 3);
+        //System.out.println(reverse2(x));
     }
 
     public int reverse(int x) {
