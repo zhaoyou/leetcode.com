@@ -1,9 +1,7 @@
 package interviewEasy.Tree;
 
-import TreeNode.TreeNode;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
+import TreeNode.TreeNode;
 
 public class MaximumDepthOfBinaryTree {
 
