@@ -4,6 +4,27 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 
 public class PopulatingNextRightPointersInEachNode {
+
+    public Node connect2 (Node root) {
+        if (root == null) return root;
+
+//        Node prev = root;
+        Node cur = root;
+
+        while(cur.left != null) {
+
+            while(cur != null) {
+                cur.left.next = cur.right;
+                if (cur.next != null) cur.right.next = cur.next.left;
+                cur = cur.next;
+            }
+
+            cur = cur.left;
+        }
+
+        return root;
+    }
+
     public Node connect(Node root) {
 
         Queue<Node> queue = new ArrayDeque<>();
