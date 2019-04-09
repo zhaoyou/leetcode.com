@@ -8,7 +8,10 @@ import java.util.Set;
 
 /**
  * reference:
+ * DFS
  * http://www.cnblogs.com/grandyang/p/4402656.html
+ * UNION-FIND
+ * https://leetcode.com/explore/interview/card/top-interview-questions-medium/108/trees-and-graphs/792/discuss/56354/1D-Union-Find-Java-solution-easily-generalized-to-other-problems
  */
 public class NumberOfIslands {
 
@@ -45,7 +48,7 @@ public class NumberOfIslands {
                 {'1','1','1','1','1','1'}
         };
 
-        System.out.println("size： " + numIslands2(grid));
+        System.out.println("size： " + numIslands(grid4));
     }
 
     public int numIslands2(char[][] grid) {
@@ -103,12 +106,12 @@ public class NumberOfIslands {
 
                     if (i > 0 && grid[i-1][j] == '1') {
                         //dp[i] = dp[(row - 1)* col + col]; // 如果上一个为1 ， 则把当前也设置成和上一个一样
-                        setSameParent(dp,  dp[i * cols + j], dp[(i - 1) * cols + j]);
+                        setSameParent(dp,  i * cols + j, (i - 1) * cols + j);
                     }
 
                     if (j > 0 && grid[i][j-1] == '1') {
 
-                        setSameParent(dp,  dp[i * cols + j - 1], dp[i * cols + j]); // 如果前一个为1， 则把前一个相同的value，都设置为当前i的值 dp[i]
+                        setSameParent(dp,  i * cols + j - 1, i * cols + j); // 如果前一个为1， 则把前一个相同的value，都设置为当前i的值 dp[i]
                     }
 
                 }
@@ -121,16 +124,29 @@ public class NumberOfIslands {
         for(int j = 0; j < dp.length; j++) {
             if (dp[j] != -1) {
                // System.out.println(dp[j]);
-                set.add(dp[j]);
+                set.add(dp[findRoot(dp, j)]);
             }
         }
 
         return set.size();
     }
 
+
+    private int findRoot(int[] dp, int x) {
+        if (dp[x] == x) return x;
+        return findRoot(dp, dp[x]);
+    }
+
     private void setSameParent(int[] dp, int value, int newValue) {
-        for(int i = 0; i < dp.length; i++) {
-            if (dp[i] == value) dp[i] = newValue;
-        }
+
+//        for(int i = 0; i < dp.length; i++) {
+//            if (dp[i] == value) dp[i] = newValue;
+//        }
+
+        int root  = findRoot(dp, value);
+        int newRoot = findRoot(dp, newValue);
+
+        dp[root] = dp[newRoot];
+
     }
 }
