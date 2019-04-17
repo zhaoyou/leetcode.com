@@ -1,12 +1,13 @@
 package interviewMedium;
 
-
-
-import apple.laf.JRSUIUtils;
 import org.junit.Test;
-
 import java.util.*;
 
+
+/**
+ * reference:
+ * https://leetcode.com/problems/serialize-and-deserialize-binary-tree/discuss/74253/Easy-to-understand-Java-Solution
+ */
 public class SerializeAndDeserializeBinaryTree {
     @Test
     public void test() {
