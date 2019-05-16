@@ -3,14 +3,21 @@ package heap;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
 
 public class HeapSort {
 
     @Test
     public void test() {
         int[] arr = new int[] {3, 5, 3, 0, 8, 6, 1, 5, 8, 6, 2, 4, 9, 4, 7, 0, 1, 8, 9, 7, 3, 1, 2, 5, 9, 7, 4, 0, 2, 6};
-        sort2(arr);
-        System.out.println(Arrays.toString(arr));
+        //sort2(arr);
+        //System.out.println(Arrays.toString(arr));
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        int seconds = calendar.get(Calendar.SECOND);
+
+        System.out.println(seconds);
     }
 
 
@@ -96,6 +103,7 @@ public class HeapSort {
             maxHeapify(arr, max, len);
         }
     }
+
 
 
 }
