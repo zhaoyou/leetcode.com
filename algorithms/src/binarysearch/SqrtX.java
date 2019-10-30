@@ -1,5 +1,6 @@
 package binarysearch;
 
+import javassist.ClassPool;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -51,9 +52,15 @@ public class SqrtX {
 
     }
 
-    public static void main(String[] args) {
-        int[] i = new int[SIZE];
+    static javassist.ClassPool cp = javassist.ClassPool.getDefault();
 
+    public static void main(String[] args) throws Exception{
+        SqrtX.main(null);
+    }
+
+    public static Class generate(String name) throws Exception {
+        ClassPool pool = ClassPool.getDefault();
+        return pool.makeClass(name).toClass();
     }
 }
 
