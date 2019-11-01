@@ -11,7 +11,7 @@ public class FindMinimumInRotatedSortedArray {
         int left = 0;
         int end = nums.length - 1;
 
-        while(left < end) {
+        while (left < end) {
 
             if (nums[left] < nums[end]) return nums[left]; // 本身已经是没有rotated数组，则第一个元素就是最小值
 
