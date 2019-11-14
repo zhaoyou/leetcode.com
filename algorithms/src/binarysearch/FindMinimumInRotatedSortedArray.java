@@ -9,7 +9,7 @@ import org.junit.Test;
 public class FindMinimumInRotatedSortedArray {
     public int findMin(int[] nums) {
         int left = 0;
-        int end = nums.length - 1;
+        int end = nums.length - 1;      // 减1 是为了能够判断nums[start] < nums[end] outOfArrayIndex
 
         while (left < end) {
 
