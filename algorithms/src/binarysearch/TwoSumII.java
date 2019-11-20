@@ -7,6 +7,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * reference:
+ * https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/discuss/51249/Python-different-solutions-(two-pointer-dictionary-binary-search).
+ */
 public class TwoSumII {
 
     public int[] twoSum(int[] numbers, int target) {
