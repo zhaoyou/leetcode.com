@@ -3,6 +3,7 @@ package arrayandstring;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -11,6 +12,54 @@ import java.util.List;
  */
 public class SpiralMatrix {
 
+    /**
+     * 参考引用连接，以游戏开放的过程实现
+     * @param matrix
+     * @return
+     */
+    public List<Integer> spiralOrder3(int[][] matrix) {
+        List<Integer> list = new ArrayList<>();
+
+        if (matrix.length == 0) return list;
+
+        int m = matrix.length;      // 行
+        int n = matrix[0].length;   // 列
+
+        int[][] dirs = { {1, 0}, {0, -1}, {-1, 0}, {0, 1}}; // 方向偏移量 从右上角开始计算
+        int[] pos = {0, n - 1}; // 右上角顶点
+
+        int d = 0; // 控制方向
+
+        // 添加第一行
+        for(int i: matrix[0]) list.add(i);
+
+        int i = (m - 1) * n ; // 统计还需要比遍历的元素。第一行已经添加了
+
+        while (i > 0) {
+
+            for(int k = 1; k < m; k++) {
+
+                i--;
+                pos[0] += dirs[d][0];   // 行
+                pos[1] += dirs[d][1];   // 列
+
+                list.add(matrix[pos[0]][pos[1]]);
+            }
+
+            m--;
+
+            // 交互行， 列顺序
+            int temp = m;
+            m = n;
+            n = temp;
+
+            d = (d + 1) % 4;  // 改变方向  0， 1， 2， 3， 0 ...
+        }
+
+        return list;
+    }
+
+        // 参考引用连接的实现
     public List<Integer> spiralOrder2(int[][] matrix) {
 
         List<Integer> list = new ArrayList<>();
@@ -58,6 +107,7 @@ public class SpiralMatrix {
 
     }
 
+    // 自己实现
     public List<Integer> spiralOrder(int[][] matrix) {
 
         List<Integer> list = new ArrayList<>();
@@ -150,10 +200,19 @@ public class SpiralMatrix {
                 {13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24}
         };
         System.out.println(spiralOrder2(matrix));
+        System.out.println(spiralOrder3(matrix));
+
         System.out.println(spiralOrder2(matrix2));
+        System.out.println(spiralOrder3(matrix2));
+
         System.out.println(spiralOrder2(matrix3));
+        System.out.println(spiralOrder3(matrix3));
+
         System.out.println(spiralOrder2(matrix4));
+        System.out.println(spiralOrder3(matrix4));
+
         System.out.println(spiralOrder2(matrix5));
+        System.out.println(spiralOrder3(matrix5));
 
     }
 }
