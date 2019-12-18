@@ -7,6 +7,8 @@ import java.util.List;
 
 /**
  * https://blog.csdn.net/ljyljyok/article/details/78268547
+ * https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/discuss/65225/4-lines-C++JavaPythonRuby
+ * https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/discuss/65236/JavaPython-iterative-solution
  */
 public class LowestCommonAncestorOfABinaryTreeSolution {
 
