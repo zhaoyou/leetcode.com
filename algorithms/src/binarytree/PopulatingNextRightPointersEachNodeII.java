@@ -15,7 +15,7 @@ public class PopulatingNextRightPointersEachNodeII {
          *        2     3
          *       / \   / \
          *      4  5  6   7
-         *  
+         *
          */
 
         while(cur != null) {

@@ -8,5 +8,11 @@ public class TreeNode {
       TreeNode right;
       TreeNode(int x) { val = x; }
       TreeNode(){}
+
+      @Override
+      public String toString() {
+          return "TreeNode{" +
+                  "val=" + val ;
+      }
   }
 
