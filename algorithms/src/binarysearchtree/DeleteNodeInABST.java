@@ -1,5 +1,10 @@
 package binarysearchtree;
 
+import org.junit.Test;
+
+import java.util.PriorityQueue;
+import java.util.Queue;
+
 /**
  * https://leetcode.com/problems/delete-node-in-a-bst/discuss/93296/Recursive-Easy-to-Understand-Java-Solution
  */
@@ -35,4 +40,19 @@ public class DeleteNodeInABST {
         }
         return root;
     }
+
+    @Test
+    public void test() {
+        Queue<Integer> queue = new PriorityQueue<>(3);
+
+        queue.offer(4);
+        queue.offer(2);
+        queue.offer(5);
+        queue.offer(3);
+        queue.offer(1);
+
+        System.out.println(queue.size());
+        System.out.println(queue.poll());
+    }
+
 }
