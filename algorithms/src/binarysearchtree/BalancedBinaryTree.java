@@ -2,10 +2,42 @@ package binarysearchtree;
 
 import org.junit.Test;
 
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  * https://leetcode.com/problems/balanced-binary-tree/discuss/35691/The-bottom-up-O(N)-solution-would-be-better
  */
 public class BalancedBinaryTree {
+
+
+    public boolean isBalanced2(TreeNode root) {
+        return helper(root) != -1;
+    }
+
+
+    private int helper(TreeNode root) {
+
+        if (root == null) return 0;
+
+        int left = helper(root.left);
+
+        if (left == -1)
+            return -1;
+
+        int right = helper(root.right);
+
+        if (right == -1)
+            return -1;
+
+        if (Math.abs(left - right) > 1)
+            return -1;
+
+        return Math.max(left, right) + 1;
+    }
+
+
+
 
     public boolean isBalanced(TreeNode root) {
 
@@ -22,6 +54,11 @@ public class BalancedBinaryTree {
         return isBalanced(root.left) && isBalanced(root.right);
     }
 
+    /**
+     * 获取每个节点的到叶子节点的最大高度
+     * @param node
+     * @return
+     */
     private int getHeight(TreeNode node) {
         if (node == null) return 0;
 
@@ -70,11 +107,29 @@ public class BalancedBinaryTree {
 
         //System.out.println(isBalanced(root));
 
-        System.out.println(getHeight(leftNode));
-        System.out.println(getHeight(rightNode));
+//        System.out.println(getHeight(leftNode));
+//        System.out.println(getHeight(rightNode));
 
 
+        Date d = new Date();
+        Calendar c = Calendar.getInstance();
 
+        int h = c.get(Calendar.HOUR_OF_DAY);
+
+        int y = c.get(Calendar.DAY_OF_YEAR);
+
+        int m = c.get(Calendar.DAY_OF_MONTH);
+
+
+        int mm  = c.get(Calendar.MINUTE);
+
+        System.out.println(mm);
+
+
+        System.out.println(d.getTime());
+
+
+        System.out.println("y: " + y + " m: " + m + " h:" + h);
 
     }
 
