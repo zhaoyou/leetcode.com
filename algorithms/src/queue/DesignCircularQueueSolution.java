@@ -5,6 +5,9 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * https://leetcode.com/problems/design-circular-queue/discuss/149420/Concise-Java-using-array
+ */
 public class DesignCircularQueueSolution {
     @Test
     public void test() {
@@ -34,74 +37,60 @@ public class DesignCircularQueueSolution {
 
 class MyCircularQueue {
 
-    List<Integer> list = null;
 
-    long head = -1;
-    long tail = -1;
+    int head, tail = -1, len = 0;
 
-    int size ;
+    int[] arr;
+
 
     /** Initialize your data structure here. Set the size of the queue to be k. */
     public MyCircularQueue(int k) {
-        list = new ArrayList<>(k);
-        for(int i = 0; i < k; i++) list.add(-1);
-        size = k;
+        arr = new int[k];
     }
 
     /** Insert an element into the circular queue. Return true if the operation is successful. */
     public boolean enQueue(int value) {
 
-        if (head == -1) {          // queue is empty
-            head = 0;
-            tail = 0;
-            list.set((int)tail, value);
+        if (isFull()) {
+            return false;
         } else {
-
-            if (tail - head == size - 1) { // is full
-                return false;
-            } else {
-                tail++;
-                list.set((int)(tail % size), value);
-
-            }
+            tail = (tail + 1) % arr.length;
+            arr[tail] = value;
+            len++;
+            return true;
         }
 
-
-        return true;
     }
 
     /** Delete an element from the circular queue. Return true if the operation is successful. */
     public boolean deQueue() {
-        if (head == -1) return false;
-
-        if (head == tail) {
-            head = -1;
-            tail = -1;
+        if (isEmpty()) {
+            return false;
         } else {
-            head++;
+            head = (head + 1) % arr.length;
+            len--;
+            return true;
         }
-
-        return true;
     }
 
     /** Get the front item from the queue. */
     public int Front() {
-        return head == -1 ? -1 : list.get((int)(head % size));
+        return isEmpty() ? -1 : arr[head];
     }
 
     /** Get the last item from the queue. */
     public int Rear() {
-        return head == -1 ? -1 : list.get((int)(tail % size));
+        return isEmpty() ? -1 : arr[tail];
     }
 
     /** Checks whether the circular queue is empty or not. */
     public boolean isEmpty() {
-        return head == -1;
+        return len == 0;
     }
 
     /** Checks whether the circular queue is full or not. */
     public boolean isFull() {
-        return tail - head == size - 1;
+        return len == arr.length;
     }
 }
 
