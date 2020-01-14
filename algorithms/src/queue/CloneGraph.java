@@ -4,7 +4,42 @@ import org.junit.Test;
 
 import java.util.*;
 
+/**
+ * reference:
+ * https://leetcode.com/problems/clone-graph/discuss/42319/Simple-Java-iterative-BFS-solution-with-HashMap-and-queue
+ */
 public class CloneGraph {
+
+
+
+    public Node cloneGraph2(Node node) {
+        if (node == null) return node;
+        Map<Node, Node> map = new HashMap();
+
+        Queue<Node> queue = new LinkedList<>();
+
+        map.put(node, new Node(node.val, new ArrayList<>()));
+        queue.add(node);
+
+        while(!queue.isEmpty()) {
+            Node cur = queue.poll();
+
+            for(Node ne: cur.neighbors) {
+
+                if (!map.containsKey(ne)) {
+                    Node n = new Node(ne.val, new ArrayList<>());
+                    map.put(ne, n);
+                    queue.add(ne);
+                }
+
+                map.get(cur).neighbors.add(map.get(ne));
+            }
+        }
+
+        return map.get(node);
+    }
+
+
     public Node cloneGraph(Node node) {
         if (node == null) return node;
         Map<Node, Node> map = new HashMap();
@@ -13,7 +48,6 @@ public class CloneGraph {
 
 
     private Node dfs(Node cur, Map<Node, Node> map) {
-
 
         if (map.containsKey(cur)) return map.get(cur);
 
@@ -50,7 +84,7 @@ public class CloneGraph {
         node4.neighbors = new ArrayList<>(Arrays.asList(node1, node3));
 
 
-        System.out.println(cloneGraph(node1));
+        System.out.println(cloneGraph2(node4));
 
 
     }
