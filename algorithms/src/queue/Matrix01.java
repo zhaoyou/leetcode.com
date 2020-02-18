@@ -9,6 +9,7 @@ import java.util.Queue;
 /**
  * reference:
  * https://leetcode.com/problems/01-matrix/discuss/101021/Java-Solution-BFS
+ * https://leetcode.com/problems/01-matrix/discuss/101039/Java-33ms-solution-with-two-sweeps-in-O(n)
  */
 public class Matrix01 {
     public int[][] updateMatrix(int[][] matrix) {
