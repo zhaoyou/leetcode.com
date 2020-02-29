@@ -14,4 +14,11 @@ public class ClimbingStairs {
         }
         return arr[n];
     }
+
+    public static void main(String[] args) {
+        System.out.println("MIN_VALUE: " + Integer.MIN_VALUE);
+        System.out.println("MAX_VALUE: " + Integer.MAX_VALUE);
+        int i = Integer.MIN_VALUE;
+        System.out.println(0 - i);
+    }
 }
