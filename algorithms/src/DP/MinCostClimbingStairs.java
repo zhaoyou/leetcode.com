@@ -29,9 +29,10 @@ public class MinCostClimbingStairs {
 
     @Test
     public void test() {
-        int[] cost = {10, 15, 30};
-//        int[] cost = {1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
+//        int[] cost = {10, 15, 30};
+        int[] cost = {1, 100, 1, 1, 1, 100, 1, 1, 100, 1};
         System.out.println(minCostClimbingStairs(cost));
+        System.out.println(minCostClimbingStairs2(cost));
     }
 
     public int minCostClimbingStairs(int[] cost) {
@@ -46,5 +47,19 @@ public class MinCostClimbingStairs {
             dp[i] = Math.min(dp[i - 2] + cost[i - 2], dp[i - 1] + cost[i - 1]);
         }
         return dp[len];
+    }
+
+
+    public int minCostClimbingStairs2(int[] cost) {
+        int f1 = cost[0];
+        int f2 = cost[1];
+
+        for(int i = 2; i < cost.length;i++) {
+            int f0 = Math.min(f1, f2) + cost[i];
+
+            f1 = f2;
+            f2 = f0;
+        }
+        return Math.min(f1, f2);
     }
 }
