@@ -37,7 +37,7 @@ public class Triangle {
 
         List triangle = Arrays.asList(list1, list2, list3, list4);
 
-        System.out.println(minimumTotal2(triangle));
+        System.out.println(minimumTotal3(triangle));
 
     }
 
@@ -90,5 +90,35 @@ public class Triangle {
         }
 
         return dp[0][0];
+    }
+
+    public int minimumTotal3(List<List<Integer>> triangle) {
+
+        int size = triangle.size();
+        int[] dp = new int[triangle.get(size - 1).size()];
+
+        dp[0] = 0;
+
+        for(int i = 0; i < size; i++) {
+
+            List<Integer> subList = triangle.get(i);
+
+            for(int j = subList.size() - 1; j >=0 ; j--) {
+
+                if (j == 0) dp[j] = dp[j] + subList.get(j);  // 第一个
+
+                else if (j == subList.size() - 1) dp[j] = dp[j - 1] + subList.get(j); // 最后一个
+
+                else dp[j] = Math.min(dp[j - 1], dp[j]) + subList.get(j); // 中间
+            }
+        }
+
+        int min = Integer.MAX_VALUE;
+
+        for(int i: dp) {
+            min = Math.min(min, i);
+        }
+
+        return min;
     }
 }
