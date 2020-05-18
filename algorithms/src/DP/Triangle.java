@@ -38,6 +38,7 @@ public class Triangle {
         List triangle = Arrays.asList(list1, list2, list3, list4);
 
         System.out.println(minimumTotal3(triangle));
+        System.out.println(minimumTotal4(triangle));
 
     }
 
@@ -120,5 +121,30 @@ public class Triangle {
         }
 
         return min;
+    }
+
+    /**
+     * https://leetcode.com/problems/triangle/discuss/38730/DP-Solution-for-Triangle
+     * @param triangle
+     * @return
+     */
+    public int minimumTotal4(List<List<Integer>> triangle) {
+
+        int size = triangle.size();
+        int[] dp = new int[size];
+
+        int p = 0;
+        for(int k: triangle.get(size - 1)) dp[p++] = k;
+
+
+        for(int i = size - 2; i >= 0; i--) {
+
+            for(int node = 0; node <= i ; node++) {
+                dp[node] = Math.min(dp[node], dp[node + 1]) + triangle.get(i).get(node);
+            }
+        }
+
+
+        return dp[0];
     }
 }
