@@ -27,10 +27,7 @@ import org.junit.Test;
  */
 public class ClimbingStairs {
 
-    @Test
-    public void test() {
-        System.out.println(climbStairs(3));
-    }
+
 
     public int climbStairs(int n) {
 
@@ -46,5 +43,27 @@ public class ClimbingStairs {
         }
 
         return dp[n];
+    }
+
+    public int climbStairs2(int n ) {
+        if (n <= 2) return n;
+
+        int[] arr = new int[n + 1];
+
+        arr[1] = 1;
+        arr[2] = 2;
+
+        for(int i = 3; i <= n; i++) {
+            for(int step = 1; step <=2; step++) {
+                arr[i] = arr[i] + arr[i - step];
+            }
+        }
+        return arr[n];
+    }
+
+    @Test
+    public void test() {
+        System.out.println(climbStairs(10));
+        System.out.println(climbStairs2(10));
     }
 }
