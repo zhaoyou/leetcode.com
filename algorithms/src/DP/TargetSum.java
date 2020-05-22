@@ -19,6 +19,7 @@ public class TargetSum {
         int[] nums = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1};
         int S = 1;
         System.out.println(findTargetSumWays(nums, S));
+        System.out.println(findTargetSumWays2(nums, S));
     }
 
     public int findTargetSumWays(int[] nums, int S) {
@@ -46,6 +47,37 @@ public class TargetSum {
 
         return plus + sub;
 
+    }
+
+    public int findTargetSumWays2(int[] nums, int S) {
+        int sum = 0 ;
+
+        for(int i: nums) sum += i;
+
+        return ( S > sum || (S + sum ) % 2 == 1) ? 0 : helper(nums, (S + sum) >>> 1);
+
+    }
+
+
+    /**
+     * https://leetcode.com/problems/target-sum/discuss/97334/Java-(15-ms)-C%2B%2B-(3-ms)-O(ns)-iterative-DP-solution-using-subset-sum-with-explanation
+     * @param nums
+     * @param target
+     * @return
+     */
+    public int helper(int[] nums, int target) {
+
+        int dp[] = new int[target + 1];
+
+        dp[0] = 1;
+
+        for(int num: nums) {
+            for(int j = target; j >= num; j--) {
+                dp[j] += dp[ j - num];
+            }
+        }
+
+        return dp[target];
     }
 
 
