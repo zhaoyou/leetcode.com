@@ -10,11 +10,11 @@ public class UniquePathsII {
     @Test
     public void test() {
         int [][] obstacleGrid =
-                {
-                {0,0}, {0,0}, {0,0}
-        };
+//                {
+//                {0,0}, {0,0}, {0,0}
+//        };
 
-        // {{0,1,0,0,0},{1,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}};
+         {{0,1,0,0,0},{1,0,0,0,0},{0,0,0,0,0},{0,0,0,0,0}};
 
 
 
@@ -27,6 +27,8 @@ public class UniquePathsII {
 
         System.out.println("============== ");
         System.out.println(uniquePathsWithObstacles(obstacleGrid));
+        System.out.println(uniquePathsWithObstacles2(obstacleGrid));
+
     }
 
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
@@ -61,5 +63,32 @@ public class UniquePathsII {
         }
 
         return result[m - 1][n - 1];
+    }
+
+    public int uniquePathsWithObstacles2(int[][] obstacleGrid) {
+         int rows = obstacleGrid.length;
+         int cols = obstacleGrid[0].length;
+
+         int dp[] = new int[cols];
+
+         dp[0] = (obstacleGrid[0][0] == 0) ? 1 : 0;
+
+         for(int i = 0; i < rows; i++) {
+
+             dp[0] = obstacleGrid[i][0] == 1 ? 0 : dp[0];
+
+             for(int j = 1; j < cols; j++) {
+
+//                 if (i == 0) {
+//                     dp[j] = obstacleGrid[i][j] == 1 ? 0 : dp[j - 1];
+//                 } else {
+                     dp[j] = obstacleGrid[i][j] == 1 ? 0 : dp[j - 1] + dp[j];
+//                 }
+
+
+             }
+         }
+
+         return dp[cols - 1];
     }
 }
