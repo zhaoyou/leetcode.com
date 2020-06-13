@@ -16,8 +16,10 @@ public class NumberOfLongestIncreasingSubsequence {
 
     @Test
     public void test() {
-        int[] nums = {1,1,1,1};
+        int[] nums = {1,3,5,4,7};
         System.out.println(findNumberOfLIS(nums));
+        System.out.println(findNumberOfLIS2(nums));
+
     }
 
 
@@ -57,4 +59,42 @@ public class NumberOfLongestIncreasingSubsequence {
 
         return result;
     }
+
+    public int findNumberOfLIS2(int[] nums) {
+
+        int n = nums.length;
+
+        int len[] = new int[n], cnt[] = new int[n];
+
+        int res = 0, max_len = 0;
+
+        for(int i = 0; i < n; i++) {
+
+            len[i] = cnt[i] = 1;
+
+            for(int j = 0 ; j < i; j++) {
+
+                if (nums[i] > nums[j]) {
+
+                    if (len[j] + 1 > len[i]) {
+                        len[i] = len[j] + 1;
+                        cnt[i] = cnt[j];
+                    } else if (len[j] + 1 == len[i]) {
+                        cnt[i] = cnt[i] + cnt[j];
+                    }
+
+                }
+            }
+
+            if (len[i] == max_len) res += cnt[i];
+            else if (len[i] > max_len) {
+                max_len = len[i];
+                res = Math.max(res, cnt[i]);
+            }
+
+        }
+
+        return res;
+    }
+
 }
