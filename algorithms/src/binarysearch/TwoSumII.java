@@ -1,6 +1,5 @@
 package binarysearch;
 
-import com.oracle.tools.packager.mac.MacAppBundler;
 import org.junit.Test;
 
 import java.util.Arrays;
