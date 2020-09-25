@@ -5,7 +5,26 @@ import org.junit.Test;
 import java.util.Arrays;
 
 public class SquaresOfASortedArray {
-    public int[] sortedSquares(int[] A) {
+
+    public int[] sortedSquares2(int[] A) {
+        int N = A.length;
+        int[] result = new int[N];
+
+        int s = 0, e = N - 1, index = N - 1;
+
+        while( s <= e) {
+            if (A[e] * A[e] > A[s] * A[s]) {
+                result[index--] = A[e] * A[e];
+                e--;
+            } else  {
+                result[index--] = A[s] * A[s];
+                s++;
+            }
+        }
+
+        return result;
+    }
+        public int[] sortedSquares(int[] A) {
         int N = A.length;
         int [] result = new int[N];
 
@@ -45,7 +64,9 @@ public class SquaresOfASortedArray {
 
     @Test
     public void  test() {
-        int[] nums = {-7,-3,2,3,11};
+        int[] nums = {-1, 2, 3, 4, 5};
         System.out.println(Arrays.toString(sortedSquares(nums)));
+        System.out.println(Arrays.toString(sortedSquares2(nums)));
+
     }
 }
