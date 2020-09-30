@@ -1,6 +1,7 @@
 package ListNode;
 
 import ListNode.ListNode;
+import org.junit.Test;
 
 public class LinkedListCycleII {
 
@@ -30,8 +31,10 @@ public class LinkedListCycleII {
 
             if (slow == fast) {
 
+                System.out.println("_-------" + slow.val);
 
                 slow = head;
+
 
                 while(slow != fast) {
                     slow = slow.next;
@@ -43,5 +46,52 @@ public class LinkedListCycleII {
         }
 
         return null;
+    }
+
+    public ListNode detectCycle2(ListNode head) {
+        if (head == null) return null;
+
+
+        ListNode slower = head;
+        ListNode faster = head;
+
+        while(faster.next != null && faster.next.next != null) {
+
+            slower = slower.next;
+            faster = faster.next.next;
+
+            if (slower == faster) {
+
+                slower = head;
+
+                while(slower != faster) {
+                    slower = slower.next;
+                    faster = faster.next;
+                }
+
+                return slower;
+            }
+        }
+
+        return null;
+    }
+
+    @Test
+    public void test() {
+        ListNode head = new ListNode(1);
+
+
+        ListNode node4 = new ListNode(4);
+        ListNode node3 = new ListNode(3);
+        ListNode node2 = new ListNode(2);
+
+        head.next = node4;
+        node4.next = node3;
+        node3.next = node2;
+        node2.next = node4;
+
+        System.out.println(detectCycle(head).val);
+        System.out.println(detectCycle2(head).val);
+
     }
 }
