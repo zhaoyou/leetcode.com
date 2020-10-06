@@ -64,4 +64,12 @@ public class RemoveLinkedListElements {
 
         return dummy.next;
     }
+
+    public ListNode removeElements3(ListNode node, int val) {
+        if (node == null) return null;
+
+        node.next = removeElements3(node.next, val);
+
+        return node.val == val ? node.next : node;
+    }
 }
