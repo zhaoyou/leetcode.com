@@ -17,7 +17,9 @@ public class PalindromeLinkedList {
         head.next.next.next = new  ListNode(2);
         head.next.next.next.next = new  ListNode(2);
         head.next.next.next.next.next = new  ListNode(1);
-        System.out.println("result: " + isPalindrome(head));
+       // System.out.println("result: " + isPalindrome(head));
+        System.out.println("result: " + isPalindrome2(head));
+
     }
 
     public boolean isPalindrome(ListNode head) {
@@ -69,4 +71,43 @@ public class PalindromeLinkedList {
 
         return p == null ? true : false;
     }
+
+
+    public boolean isPalindrome2(ListNode head) {
+
+        if (head == null || head.next == null) return true;
+
+        ListNode fast = head;
+        ListNode slow = head;
+
+        // 找到中间节点
+        while(fast != null) {
+            slow = slow.next;
+            fast = fast.next;
+
+            if (fast != null) fast = fast.next;  // 很关键，能处理掉 对称的节点
+        }
+
+        ListNode prev = null;
+
+        // 反转后部分
+        while(slow != null) {
+            ListNode next = slow.next;
+            slow.next = prev;
+
+            prev = slow;
+            slow = next;
+
+        }
+
+        // 比较开始部分和反转后的节点
+        while(prev != null && head != null) {
+            if (prev.val != head.val) return false;
+            prev = prev.next;
+            head = head.next;
+        }
+
+        return true;
+    }
+
 }
