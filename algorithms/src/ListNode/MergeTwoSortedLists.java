@@ -88,4 +88,33 @@ public class MergeTwoSortedLists {
                     '}';
         }
     }
+
+    public ListNode mergeTwoLists2(ListNode l1, ListNode l2) {
+        ListNode dummy = new ListNode(-1);
+
+        ListNode newList = dummy;
+
+        while(l1 != null && l2 != null) {
+            if (l1.val < l2.val) {
+                newList.next = l1;
+                l1 = l1.next;
+            } else {
+                newList.next = l2;
+                l2 = l2.next;
+            }
+
+            newList = newList.next;
+
+        }
+
+        if (l1 != null) {
+            newList.next = l1;
+        }
+
+        if (l2 != null) {
+            newList.next = l2;
+        }
+
+        return dummy.next;
+    }
 }
