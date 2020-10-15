@@ -48,31 +48,40 @@ public class FlattenAMultilevelDoublyLinkedList {
         return p;
     }
 
-//    public Node flatten2(Node head) {
-//        Node p = head;
-//
-//        Stack<Node> stack = new Stack<>();
-//
-//        while(head != null || !stack.isEmpty()) {
-//
-//            while (head != null && head.child != null) {
-//
-//                head.next = head.child;
-//                head.child.prev = head;
-//
-//                stack.push(head.next);
-//
-//                head = head.child;
-//
-//            }
-//
-//            if (head != null ) head = head.next;
-//            else head = stack.pop();
-//
-//        }
-//
-//        return p;
-//    }
+    public Node flatten2(Node head) {
+        Node cur = head;
+
+        Stack<Node> stack = new Stack<>();
+
+        while(cur != null)  {
+
+           if (cur.child != null) {
+
+               stack.push(cur.next); // cur.next 可能为null
+
+               cur.next = cur.child;
+
+               cur.child.prev = cur;
+
+               cur.child = null;
+
+
+           } else if (cur.next == null && !stack.isEmpty()) {
+
+
+               cur.next = stack.pop();
+
+               if (cur.next != null) cur.next.prev = cur;
+
+
+           }
+
+            cur = cur.next;
+
+        }
+
+        return head;
+    }
 
 
 }
