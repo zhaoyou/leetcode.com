@@ -3,7 +3,7 @@ import java.util.*;
 public class BaseballGame {
 
     public int calPoints(String[] ops) {
-        java.util.Stack<Integer> stack = new Stack<>();
+        Stack<Integer> stack = new Stack<>();
 
         int sum = 0;
 
