@@ -34,6 +34,9 @@ public class FlattenBinaryTreeToLinkedList {
 
         while(root != null) {
 
+            /**
+             * 想办法把root的左边转移到右边节点，为了腾空间右节点，需要先把右节点放到左边的最后一个节点下
+             */
             if (root.left != null) {
 
                 TreeNode p = root.left;
@@ -49,7 +52,6 @@ public class FlattenBinaryTreeToLinkedList {
             }
 
             root = root.right;
-
 
         }
     }
