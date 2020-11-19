@@ -2,8 +2,6 @@ package binarytree;
 
 import java.util.Stack;
 
-import javax.swing.tree.TreeNode;
-
 /**
  * reference: https://leetcode.com/problems/flatten-binary-tree-to-linked-list/discuss/36977/My-short-post-order-traversal-Java-solution-for-share
  * 

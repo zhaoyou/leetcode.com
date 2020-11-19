@@ -2,7 +2,6 @@ package binarytree;
 
 import java.util.Stack;
 
-import javax.swing.tree.TreeNode;
 
 public class MergeTwoBinaryTrees {
 

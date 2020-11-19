@@ -8,7 +8,6 @@ import java.util.Queue;
 
 public class TreeNodeTest {
 
-    @Test
     public boolean theSame(TreeNode p, TreeNode q) {
 
         if (p == null && q == null) return true;
@@ -20,7 +19,6 @@ public class TreeNodeTest {
         return theSame(p.left, q.left) && theSame(p.right, q.right);
     }
 
-    @Test
     public boolean theSame2(TreeNode p, TreeNode q) {
 
         Queue<TreeNode> queue = new LinkedList<TreeNode>();
@@ -65,5 +63,33 @@ public class TreeNodeTest {
         }
 
         System.out.println("size: " + q.size());
+    }
+
+    @Test
+    public void test() {
+        byte i = -128;
+
+
+        // 1 2 3 4 5 6 7 8 9 A B C D E F
+
+        // 0xFF
+
+
+
+        byte aByte = 0b00100001;
+        byte xByte = 0xa;
+        byte[] bytes = {0b00100001};
+
+
+
+        // 00 00 00 00
+
+        byte mask = 0b0111111;
+
+
+        System.out.println(Integer.toBinaryString(aByte & mask));
+
+        System.out.println(Integer.toBinaryString(128));
+
     }
 }
