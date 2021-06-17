@@ -15,18 +15,16 @@ public class PathSum2 {
     private void helper(TreeNode node, int targetSum, List<Integer> list) {
         if (node == null) return;
 
-        if (node.left == null && node.right == null) {
-            if (node.val == targetSum) {
-                list.add(node.val);
-                result.add(list);
-            }
+        list.add(node.val);
+
+
+        if (node.left == null && node.right == null && node.val == targetSum) {
+            result.add(new LinkedList<>(list));
         } else {
-            list.add(node.val);
-            helper(node.left, targetSum - node.val, new LinkedList<>(list));
-
-            helper(node.right, targetSum - node.val, new LinkedList<>(list));
-
-            list.remove(list.size() - 1);
+            helper(node.left, targetSum - node.val, list);
+            helper(node.right, targetSum - node.val, list);
         }
+
+        list.remove(list.size() - 1);
     }
 }
