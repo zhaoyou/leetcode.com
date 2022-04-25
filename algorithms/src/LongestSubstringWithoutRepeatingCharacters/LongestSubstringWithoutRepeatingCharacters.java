@@ -112,6 +112,42 @@ public class LongestSubstringWithoutRepeatingCharacters {
         return max;
     }
 
+    public int lengthOfLongestSubstring4(String s) {
+        if (s.length() == 0) { return 0;}
+        int[] cache = new int[256];
+        Map<Character, Integer> map = new HashMap<>();
+        int left = 0, right = 0, count = 0, len = s.length();
+        int result = 0;
+        while(right < len) {
+            char temp = s.charAt(right);
+
+            map.put(temp, map.getOrDefault(temp, 0) + 1 );
+
+            if (map.get(temp) > 1) count++;
+
+            right++;
+
+            while(count > 0) {
+
+
+                char t = s.charAt(left);
+
+                map.put(t, map.get(t) - 1);
+
+                if (map.get(t) > 0) count--;
+
+
+                left++;
+
+                result = Math.max(result, right - left);
+
+
+            }
+        }
+
+        return result;
+    }
+
     @Test
     public void test3() {
         String str = "abcabcbb";
