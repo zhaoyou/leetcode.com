@@ -114,7 +114,6 @@ public class LongestSubstringWithoutRepeatingCharacters {
 
     public int lengthOfLongestSubstring4(String s) {
         if (s.length() == 0) { return 0;}
-        int[] cache = new int[256];
         Map<Character, Integer> map = new HashMap<>();
         int left = 0, right = 0, count = 0, len = s.length();
         int result = 0;
@@ -129,20 +128,16 @@ public class LongestSubstringWithoutRepeatingCharacters {
 
             while(count > 0) {
 
-
                 char t = s.charAt(left);
 
                 map.put(t, map.get(t) - 1);
 
                 if (map.get(t) > 0) count--;
 
-
                 left++;
-
-                result = Math.max(result, right - left);
-
-
             }
+
+            result = Math.max(result, right - left);
         }
 
         return result;
